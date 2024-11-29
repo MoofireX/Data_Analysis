@@ -197,31 +197,48 @@ def y_data(file,read_or_write):
     return y_axis
 
 
-def plot_frame(keys, values, plot_style):
+def plot_frame(frame=None, keys=None, values=None,plot_style = 'o'):
 
-    if len(keys) != len(values):
-        print("The length of the tuple keys should be equal to the length of the tuple values.", "(", len(keys), ")", "!=" , "(",len(values),")")
-        print("Please fix this error and run the code again.")
+    if keys is None and values is None:
+        frame_keys = frame.keys()
 
-        sys.exit()    
+        x = list(frame_keys)
 
-    indx = 0
+        y = []
 
-    frame_dict = {}
-    
-    while indx < len(keys):
+        for val in frame:
+            y.append(list(frame[val]))
+
+        print(y)
+
+        plt.plot(x,y,plot_style)
+        plt.show()
+
+    if frame is None:
         
-        frame_dict[keys[indx]] = [values[indx]]
+        if len(keys) != len(values):
+            print("The length of the tuple keys should be equal to the length of the tuple values.", "(", len(keys), ")", "!=" , "(",len(values),")")
+            print("Please fix this error and run the code again.")
 
-        indx += 1
+            sys.exit()    
 
-    frame = pd.DataFrame(frame_dict)    
+        indx = 0
 
-    x = keys
-    y = values
+        frame_dict = {}
+    
+        while indx < len(keys):
+        
+            frame_dict[keys[indx]] = [values[indx]]
 
-    plt.plot(x,y,plot_style)
-    plt.show()
+            indx += 1
+
+        frame = pd.DataFrame(frame_dict)    
+
+        x = keys
+        y = values
+
+        plt.plot(x,y,plot_style)
+        plt.show()
 
 
 def print_frame(keys, values):
@@ -244,4 +261,3 @@ def print_frame(keys, values):
 
     frame = pd.DataFrame(frame_dict)
     print(frame)
-
