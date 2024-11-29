@@ -1,5 +1,5 @@
 # Data_Analysis
-Uses matplotlib and pandas to plot data, give x and y axis values, and plot data frames. More coming soon!
+Uses matplotlib and pandas to plot data, give x and y axis values, and plot data frames. More coming soon!*
 
 
 The matplotlib plotting function* takes a file as an input. The format should be as follows:
@@ -20,3 +20,5 @@ The print_frame function does the same thing as the plot_frame function, but it 
 
 
 *These functions also take a plot_style input, like 'o' for a scatter plot.
+
+*Use pip install (from PyPi) to install matplotlib and pandas: pip install matplotlib + pip install pandas
