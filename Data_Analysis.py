@@ -209,8 +209,6 @@ def plot_frame(frame=None, keys=None, values=None,plot_style = 'o'):
         for val in frame:
             y.append(list(frame[val]))
 
-        print(y)
-
         plt.plot(x,y,plot_style)
         plt.show()
 
